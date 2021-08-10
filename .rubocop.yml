@@ -1,0 +1,76 @@
+require:
+- rubocop
+- rubocop-rails
+- rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.5.1
+  NewCops: enable
+  Include:
+  - Gemfile
+  - app/models/**/*.rb
+  - app/controllers/api/v1/*.rb
+  Exclude:
+  - bin/*
+  - vendor/**/*
+RSpec:
+  Patterns:
+  - '^spec.*\*\.rb'
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  IgnoreMacros: true
+  Include:
+  - '**/*.rb'
+  IgnoredMethods:
+  - render
+  - require
+  - require_dependency
+  - raise
+  - head
+  - redirect_to
+  - respond_to
+  - include
+  - to
+  - not_to
+  - to_not
+  - describe
+  - shared_examples
+
+Layout/LineLength:
+  Max: 185
+Metrics/ClassLength:
+  Max: 120
+Metrics/BlockLength:
+  Exclude:
+  - 'config/routes.rb'
+  - 'spec/**/*.rb'
+Metrics/MethodLength:
+  Max: 40
+Metrics/AbcSize:
+  Max: 25
+Lint/MissingSuper:
+  Enabled: true
+  Exclude:
+  - 'app/services/**/*'
+Lint/RedundantCopDisableDirective:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Max: 4
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: no_mixed_keys
+Style/StringLiterals:
+  Enabled: false
+Rails/WhereExists:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+RSpec/ExampleLength:
+  Max: 20
